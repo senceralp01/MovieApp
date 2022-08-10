@@ -8,8 +8,11 @@
 import Search from './models/Search';
 import { elements } from './base';
 import * as searchView from './views/searchView';
+import { Movie } from './models/movie';
 
 const state = {};
+
+// Search Controller
 
 const searchController = async () => {
 
@@ -20,7 +23,7 @@ const searchController = async () => {
 
         await state.search.getResults();
         // console.log(state.search.data);
-        
+
         searchView.clearInput();
         searchView.clearResults();
         searchView.displayResults(state.search.data);
@@ -37,3 +40,13 @@ elements.searchForm.addEventListener('submit', function(e){
     searchController();
     e.preventDefault();
 });
+
+// Movie Controller
+
+// const movieController = async () => {
+//     const movie = new Movie(252291);
+//     await movie.GetMovie();
+//     console.log(movie);
+// }
+// movieController();
+
