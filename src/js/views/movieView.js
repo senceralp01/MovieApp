@@ -6,6 +6,7 @@ export const backToTop = () => {
 
 export const closeDetails = () => {
     elements.movieDetailsContainer.classList.remove('d-block');
+}
 
 export const displayMovie = movie => {
     
