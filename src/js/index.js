@@ -58,3 +58,4 @@ const movieController = async () => {
 
 window.addEventListener('hashchange', movieController);
 
+elements.movieDetailsClose.addEventListener('click', movieView.closeDetails);

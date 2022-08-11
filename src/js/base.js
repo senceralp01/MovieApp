@@ -4,7 +4,8 @@ export const elements = {
     movieList : document.getElementById('movie-list'),
     movieListContainer: document.getElementById('movie-list-container'),
     movieDetails: document.getElementById('movie-details'),
-    movieDetailsContainer: document.getElementById('movie-details-container')
+    movieDetailsContainer: document.getElementById('movie-details-container'),
+    movieDetailsClose: document.getElementById('movie-details-close')
 }
 
 export const image_sizes = {
