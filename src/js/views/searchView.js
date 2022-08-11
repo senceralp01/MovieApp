@@ -5,12 +5,12 @@ export const clearInput = () => {
 }
 
 export const clearResults = () => {
-    elements.searchResult.innerHTML = '';
+    elements.movieList.innerHTML = '';
 }
 
 export const displayResults = data => {
     data.results.forEach(movie => {
-        console.log(movie);
+        // console.log(movie);
         const html = `
         <li class="media mb-3">
             <img src="https://www.themoviedb.org/t/p/w92${movie.poster_path}" onerror="this.src='https://via.placeholder.com/92x138';" class="mr-3" alt="${movie.title}">
@@ -23,6 +23,8 @@ export const displayResults = data => {
             </div>
         </li>
         `;
-        elements.searchResult.insertAdjacentHTML('beforeend', html);
+
+        elements.movieListContainer.classList.add('d-block');
+        elements.movieList.insertAdjacentHTML('beforeend', html);
     });
 }
