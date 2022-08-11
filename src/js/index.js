@@ -6,7 +6,7 @@
 // Model View Controller (MVC)
 
 import Search from './models/Search';
-import { elements } from './base';
+import { elements, renderLoader, clearLoader } from './base';
 import * as searchView from './views/searchView';
 import * as movieView from './views/movieView';
 import { Movie } from './models/movie';
@@ -22,15 +22,16 @@ const searchController = async () => {
     if (keyword){
         state.search = new Search(keyword);
 
-        await state.search.getResults();
-        // console.log(state.search.data);
-
         searchView.clearInput();
         searchView.clearResults();
-        searchView.displayResults(state.search.data);
         
-
-    }else{
+        renderLoader(elements.movieListContainer);
+        
+        await state.search.getResults();
+        searchView.displayResults(keyword, state.search.data);
+        setTimeout(() => { clearLoader(elements.movieListContainer); }, 1000);      
+        
+    }else {
         alert('Type keyword please.')
     }
 
@@ -49,10 +50,12 @@ const movieController = async () => {
     if(id){
         state.movie = new Movie(id);
 
-        await state.movie.getMovie();
+        renderLoader(elements.movieDetailsContainer);
 
-        movieView.displayMovie(state.movie.data);
+        await state.movie.getMovie();
         movieView.backToTop();
+        movieView.displayMovie(state.movie.data);
+        setTimeout(() => { clearLoader(elements.movieDetailsContainer); }, 1000);
     }
 }
 

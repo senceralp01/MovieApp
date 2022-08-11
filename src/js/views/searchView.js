@@ -8,7 +8,7 @@ export const clearResults = () => {
     elements.movieList.innerHTML = '';
 }
 
-export const displayResults = data => {
+export const displayResults = (keyword, data) => {
     data.results.forEach(movie => {
         // console.log(movie);
         const html = `
@@ -24,6 +24,7 @@ export const displayResults = data => {
         </li>
         `;
 
+        elements.movieListHeader.innerHTML = `Search for <b>${keyword}</b> has found <b>${data.total_results}</b> results.`;
         elements.movieListContainer.classList.add('d-block');
         elements.movieList.insertAdjacentHTML('beforeend', html);
     });
