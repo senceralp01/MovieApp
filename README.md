@@ -2,7 +2,7 @@
 
 You can search for movies and see movie details when you click on the results.
 
-Fetches Movie Informations from the API Service via async-await.
+Fetches Movie Informations via async-await from the API Service(api.themoviedb.org).
 
 Bootstrap has been used for responsive design of app.
 
